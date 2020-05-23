@@ -1,14 +1,20 @@
-import Tile from './Tile';
+//import {Tile} from './Tile';
 
-export default class Playfield {
+export class Playfield {
+
+    #state
 
     constructor() {
-        this.#state = new Array(16)
+        this.#state = []
+    }
+
+    getState() {
+        return this.#state
     }
 
     build(){
         for (let x = 0; x < 4; x++) {
-            let row = this.#state.x = []
+            let row = this.#state[x] = []
 
             for (let y = 0; y < 4; y++){
                 row.push(null)
@@ -39,7 +45,7 @@ export default class Playfield {
     eachCell(callback) {
         for (let x = 0; x < 4; x++){
             for (let y = 0; y < 4; y++){
-                callback(x, y, this.cells[x][y])
+                callback(x, y, this.#state[x][y])
             }
         }
     }
@@ -57,30 +63,15 @@ export default class Playfield {
     }
 
     getCellContent(cell) {
-        return this.cells[cell.x][cell.y]
+        return this.#state[cell.x][cell.y]
     }
 
     insertTile(tile){
-        this.cells[tile.x][tile.y] = tile;
+        this.#state[tile.x][tile.y] = tile;
     }
 
     removeTile(tile){
-        this.cells[tile.x][tile.y] = null
+        this.#state[tile.x][tile.y] = null
     }
-
-
-
-
-    /*drawBoard() {
-        const board = document.createElement("div")
-        board.id = "playfield"
-        const back = document.createElement("div")
-        back.className = "back"
-
-        for (i = 0; i < this.#state.length; i++){
-            board.appendChild(back)
-        }
-        return board
-    }*/
 
 }
