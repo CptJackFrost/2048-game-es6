@@ -1,4 +1,5 @@
-import {Tile} from './Tile.js';
+'use strict';
+import {Tile} from '../src/Tile.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const field = document.querySelector('#playfield');

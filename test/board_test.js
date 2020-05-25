@@ -1,5 +1,5 @@
 'use strict';
-import {Playfield} from './Playfield.js';
+import {Playfield} from '../src/Playfield.js';
 
 document.addEventListener('DOMContentLoaded', function () {
     let playfield = new Playfield();
@@ -16,5 +16,5 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log(playfield.checkIfFreeCells());
     playfield.removeTile({x: 0, y: 1});
     console.log(playfield.findEmptyCells());
-    console.log(checkIfFreeCells)
+    console.log(playfield.checkIfFreeCells());
 });

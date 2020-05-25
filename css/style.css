@@ -12,6 +12,45 @@
     -ms-user-drag: none;
     -webkit-user-drag: none;
 }
+
+@-webkit-keyframes appear {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(0);
+        -moz-transform: scale(0);
+   }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+   }
+}
+@-moz-keyframes appear {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(0);
+        -moz-transform: scale(0);
+   }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+   }
+}
+@keyframes appear {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(0);
+        -moz-transform: scale(0);
+   }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+   }
+}
+
+
 #playfield{
     position: absolute;
     top: 100px;
@@ -35,7 +74,17 @@
     color: black;
     text-align: center;
     font: 48px/96px Arial;
+    transition-property: top, left;
+    transition-duration: 0.3s;
 }
+
+.thing.new {
+    -webkit-animation: appear 200ms ease 100ms;
+    -moz-animation: appear 200ms ease 100ms;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+}
+
 .thing.t2{
     background: #18df00;
 }

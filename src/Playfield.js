@@ -11,6 +11,10 @@ export class Playfield {
     getState() {
         return this.#state
     }
+    
+    setState(position, value) {
+        this.#state[position] = value
+    }
 
     build(){
         for (let x = 0; x < 4; x++) {
