@@ -9,15 +9,6 @@ export class Tile {
         this.mergedFrom = null
     }
 
-
-    /*createTile() {
-        const element = document.createElement("div")
-        element.className = `thing t${this.value}`
-        element.style.top = `${100 * this.y}px`
-        element.style.left = `${100 * this.x}px`
-        return element
-    }*/
-
     savePosition() {
         this.previousPosition = {
             x: this.x,
