@@ -29,10 +29,10 @@ export class HTMLManager {
         element.style.top = `${100 * position.y}px`
         element.style.left = `${100 * position.x}px`
         if (tile.previousPosition){
-            window.requestAnimationFrame(()=>{
+            //window.requestAnimationFrame(()=>{
                 element.style.top = `${100 * tile.y}px`
                 element.style.left = `${100 * tile.x}px`
-            })
+            //})
         } else {
             element.className = `thing t${tile.value} new`
         }

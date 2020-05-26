@@ -2,23 +2,21 @@
 
 export class Playfield {
 
-    #state
-
     constructor() {
-        this.#state = []
+        this.state = []
     }
 
     getState() {
-        return this.#state
+        return this.state
     }
     
     setState(position, value) {
-        this.#state[position] = value
+        this.state[position] = value
     }
 
     build(){
         for (let x = 0; x < 4; x++) {
-            let row = this.#state[x] = []
+            let row = this.state[x] = []
 
             for (let y = 0; y < 4; y++){
                 row.push(null)
@@ -49,7 +47,7 @@ export class Playfield {
     eachCell(callback) {
         for (let x = 0; x < 4; x++){
             for (let y = 0; y < 4; y++){
-                callback(x, y, this.#state[x][y])
+                callback(x, y, this.state[x][y])
             }
         }
     }
@@ -67,15 +65,15 @@ export class Playfield {
     }
 
     getCellContent(cell) {
-        return this.#state[cell.x][cell.y]
+        return this.state[cell.x][cell.y]
     }
 
     insertTile(tile){
-        this.#state[tile.x][tile.y] = tile;
+        this.state[tile.x][tile.y] = tile;
     }
 
     removeTile(tile){
-        this.#state[tile.x][tile.y] = null
+        this.state[tile.x][tile.y] = null
     }
 
 }

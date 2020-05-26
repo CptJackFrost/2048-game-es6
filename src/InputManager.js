@@ -2,6 +2,8 @@ export class InputManager {
 
     constructor(){
         this.events = {}
+
+        this.listen()
     }
   
     on(event, callback) {
@@ -14,7 +16,7 @@ export class InputManager {
     emit(event, data) {
         let callbacks = this.events[event]
         if (callbacks) {
-            callbacks.forEach(function (callback) {
+            callbacks.forEach((callback) => {
                 callback(data)
             })
         }
@@ -22,13 +24,6 @@ export class InputManager {
   
     listen() {
         let self = this
-    
-        let map = {
-            38: 0, // вверх
-            39: 1, // вправо
-            40: 2, // вниз
-            37: 3, // влево
-        } 
 
         let gestures = [Hammer.DIRECTION_UP, Hammer.DIRECTION_RIGHT,
                         Hammer.DIRECTION_DOWN, Hammer.DIRECTION_LEFT]
@@ -41,9 +36,8 @@ export class InputManager {
         
         handler.on("swipe", function (event) {
             event.gesture.preventDefault()
-            let mapped = gestures.indexOf(event.gesture.direction)
-    
-        if (mapped !== -1) self.emit("event", mapped)
+            let mapped = gestures.indexOf(event.gesture.direction)    
+            if (mapped !== -1) self.emit("move", mapped)
         })
 
         let reset = document.getElementsByClassName("reset-button")[0]

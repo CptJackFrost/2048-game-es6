@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let manager = new InputManager()
     manager.listen()
-    manager.on("event", tellDirection)
+    manager.on("move", tellDirection)
     manager.on("reset", tellIfReseted)
 })
 
