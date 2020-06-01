@@ -156,7 +156,7 @@ export class Controller {
         do {
           previous = cell;
           cell     = { x: previous.x + vector.x, y: previous.y + vector.y };
-        } while (this.playfield.isCellFree(cell));
+        } while (this.playfield.isCellFree(cell) && this.playfield.within(cell));
       
         return {
           farthest: previous,

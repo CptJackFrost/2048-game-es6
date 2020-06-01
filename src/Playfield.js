@@ -65,7 +65,11 @@ export class Playfield {
     }
 
     getCellContent(cell) {
-        return this.state[cell.x][cell.y]
+        if (this.within(cell)){
+            return this.state[cell.x][cell.y]
+        } else {
+            return null
+        }
     }
 
     insertTile(tile){
@@ -75,5 +79,10 @@ export class Playfield {
     removeTile(tile){
         this.state[tile.x][tile.y] = null
     }
+
+    within(position) {
+        return position.x >= 0 && position.x < 4 &&
+               position.y >= 0 && position.y < 4
+      }
 
 }
